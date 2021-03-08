@@ -1,5 +1,5 @@
-let fs=require("fs");
-let path =require("path");
+let fs = require("fs");
+let path = require("path");
 function viewHelper(src, mode) {
     if (mode == "tree") {
         console.log("tree view will be shown for this", src)
@@ -16,9 +16,11 @@ module.exports = {
 function viewAsFlatFile(src, toprint) {
     let isFile = checkPathisDirectoryOrNot(src);
     if (isFile == true) {
-        console.log(toprint + "*");
+        const data = fs.readFileSync('toprint', 'utf8')
+        console.log(data)
     } else {
-        console.log(toprint);
+        const data = fs.readFileSync('toprint', 'utf8')
+        console.log(data)
         //childrens=> content read
         let childrens = childrenReader(src);
         for (let i = 0; i < childrens.length; i++) {
